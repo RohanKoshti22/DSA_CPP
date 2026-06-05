@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//array
 int main()
 {
     int size = 5;
