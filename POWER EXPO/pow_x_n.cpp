@@ -25,7 +25,7 @@ double myPow(double x, int n)
     while (binform > 0)
    
     {
-        if (binform % 2 == 1)
+        if (binform % 2 == 1)  
         {
             ans *= x;
         }
