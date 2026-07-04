@@ -1,0 +1,50 @@
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+bool permu_string(string s1, string s2){
+    if(s1.length() > s2.length())
+    return false;
+
+    vector<int> freq1(26,0);
+    vector<int> freq2(26,0);
+
+    for(char ch : s1)
+    {
+     freq1[ch - 'a']++;
+    }
+    
+    int window = s1.length();
+    for(int i = 0 ; i < window; i++){
+        freq2[s1[i] - 'a']++;
+    }
+    if(freq1 == freq2 ){
+        return true;
+    }
+    for (int  i = window; i < s2.length(); i++)
+    {
+freq2[s1[i] - 'a']++;
+freq2[s2[i-window] - 'a']--;
+
+ if(freq1 == freq2 ){
+        return true;
+    }
+
+    }
+    return false;
+}
+
+int main(){
+ string s1 = "ab";
+    string s2 = "eidbaooo";
+
+    if(permu_string(s1, s2))
+    {
+        cout << "True";
+    }
+    else
+    {
+        cout << "False";
+    }
+    return 0;
+}
